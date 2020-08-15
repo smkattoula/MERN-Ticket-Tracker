@@ -1,0 +1,8 @@
+Build out backend with express API and mongoose for MongoDB.
+
+Install dependencies (express, mongoose, concurrently)
+Install Dev dependencies (nodemon)
+
+Set up scripts in package.json
+Set up server.js
+Set up MongoDB and adding MONGO_URI to server.js
