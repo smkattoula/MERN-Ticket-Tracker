@@ -5,4 +5,4 @@ Install Dev dependencies (nodemon)
 
 Set up scripts in package.json
 Set up server.js
-Set up MongoDB and adding MONGO_URI to server.js
+Set up MongoDB going to MongoDB Atlas and adding MONGO_URI to server.js
