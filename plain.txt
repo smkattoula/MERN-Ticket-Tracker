@@ -3,11 +3,18 @@ Build out backend with express API and mongoose for MongoDB.
 Install dependencies (express, mongoose, concurrently)
 Install Dev dependencies (nodemon)
 
-Set up scripts in package.json
+Set up scripts in package.json(set up "client-install", "start", "server", "client", "dev")
 Set up server.js
 Set up MongoDB going to MongoDB Atlas and adding MONGO_URI to server.js
 
-**API**
- Fetch request to GET, POST, PATCH, DELETE tickets
+Create a Model of your data
 
- Create a Model of your data
+**API**
+ Fetch request to GET, POST(add), POST(update), DELETE tickets
+
+ Create client folder for frontend and run create-react-app
+ Configure client package.json(set up proxy)
+ 
+ In client folder, npm install bootstrap, reactstrap, uuid, react-transition-group
+
+Create AppNavBar
