@@ -6,3 +6,8 @@ Install Dev dependencies (nodemon)
 Set up scripts in package.json
 Set up server.js
 Set up MongoDB going to MongoDB Atlas and adding MONGO_URI to server.js
+
+**API**
+ Fetch request to GET, POST, PATCH, DELETE tickets
+
+ Create a Model of your data
