@@ -51,7 +51,7 @@ export default class CreateTicket extends Component {
 
     console.log(ticket);
 
-    axios.post("/api/tickets", ticket).then((res) => console.log(res.data));
+    axios.post("/api/tickets/", ticket).then((res) => console.log(res.data));
 
     window.location = "/";
   };
@@ -60,6 +60,8 @@ export default class CreateTicket extends Component {
     return (
       <Form>
         <FormGroup>
+          <h3>Create a Ticket</h3>
+          <br />
           <Label for="category">Category</Label>
           <Input
             type="select"

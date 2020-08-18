@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const tickets = require("./routes/api/tickets");
 
@@ -7,6 +8,9 @@ const app = express();
 
 // Bodyparser
 app.use(express.json());
+
+// Cors
+app.use(cors());
 
 // DB Config
 const db = require("./config/keys").MONGO_URI;

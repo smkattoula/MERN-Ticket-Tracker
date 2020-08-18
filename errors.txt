@@ -5,3 +5,9 @@ Line 15:7:  The href attribute requires a valid value to be accessible. Provide 
 proxy error: Could not proxy request /api/tickets from localhost:3000 to http://localhost:5000.
 
 Error: EACCES: permission denied, access '/usr/local/lib/node_modules' 
+
+
+
+** BLOCKERS **
+
+Cannot seem to load ticket information into the edit form with componentDidMount. 

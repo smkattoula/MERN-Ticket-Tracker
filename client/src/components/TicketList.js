@@ -16,7 +16,12 @@ const Ticket = (props) => (
       </Link>{" "}
       |{" "}
       <button
-        style={{ color: "#dc3545", border: "none", background: "transparent" }}
+        style={{
+          color: "#dc3545",
+          border: "none",
+          background: "transparent",
+          padding: "0",
+        }}
         href="#"
         onClick={() => {
           props.deleteTicket(props.ticket._id);
