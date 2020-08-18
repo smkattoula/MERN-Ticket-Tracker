@@ -17,4 +17,6 @@ Create a Model of your data
  
  In client folder, npm install bootstrap, reactstrap, uuid, react-transition-group
 
-Create AppNavBar
+Create components (AppNavBar, CreateTicket, EditTicket, TicketList)
+
+Set up axios to fetch data to and from the database.

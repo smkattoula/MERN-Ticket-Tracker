@@ -1,0 +1,7 @@
+Error: listen EADDRINUSE: address already in use :::5000
+
+Line 15:7:  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+proxy error: Could not proxy request /api/tickets from localhost:3000 to http://localhost:5000.
+
+Error: EACCES: permission denied, access '/usr/local/lib/node_modules' 
