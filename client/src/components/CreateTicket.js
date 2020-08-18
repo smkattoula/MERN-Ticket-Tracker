@@ -51,7 +51,7 @@ export default class CreateTicket extends Component {
 
     console.log(ticket);
 
-    axios.post("/", ticket).then((res) => console.log(res.data));
+    axios.post("/api/tickets", ticket).then((res) => console.log(res.data));
 
     window.location = "/";
   };
@@ -67,6 +67,7 @@ export default class CreateTicket extends Component {
             value={this.state.category}
             onChange={this.onChangeCategory}
           >
+            <option>Select a Ticket Category</option>
             <option>General</option>
             <option>Billing</option>
             <option>Login</option>
@@ -82,6 +83,7 @@ export default class CreateTicket extends Component {
             value={this.state.priority}
             onChange={this.onChangePriority}
           >
+            <option>Select a Priority Level</option>
             <option>Low</option>
             <option>Medium</option>
             <option>High</option>
