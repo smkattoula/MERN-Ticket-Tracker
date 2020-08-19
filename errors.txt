@@ -11,3 +11,5 @@ Error: EACCES: permission denied, access '/usr/local/lib/node_modules'
 ** BLOCKERS **
 
 Cannot seem to load ticket information into the edit form with componentDidMount. 
+
+Can't seem to load the date time as a prop into the DOM after implementing Redux. "Error: Objects are not valid as a React child (found: Wed Aug 19 2020 11:04:57 GMT-0700 (Pacific Daylight Time)). If you meant to render a collection of children, use an array instead."
