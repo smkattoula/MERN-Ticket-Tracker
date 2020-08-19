@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const tickets = require("./routes/api/tickets");
+const users = require("./routes/api/users");
 
 const app = express();
 
@@ -27,6 +28,7 @@ mongoose
 
 // Use routes
 app.use("/api/tickets", tickets);
+app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
 
