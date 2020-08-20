@@ -1,9 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const config = require("config");
 
 const tickets = require("./routes/api/tickets");
 const users = require("./routes/api/users");
+const auth = require("./routes/api/auth");
 
 const app = express();
 
@@ -14,7 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 // DB Config
-const db = require("./config/keys").MONGO_URI;
+const db = config.get("MONGO_URI");
 
 // Connect to Mongo
 mongoose
@@ -29,6 +31,7 @@ mongoose
 // Use routes
 app.use("/api/tickets", tickets);
 app.use("/api/users", users);
+app.use("/api/auth", auth);
 
 const port = process.env.PORT || 5000;
 

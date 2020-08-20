@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const auth = require("../../middleware/auth");
 
 // Ticket Model
 const Ticket = require("../../models/Ticket");
@@ -16,9 +17,9 @@ router.get("/", (req, res) => {
 
 // Route: POST api/tickets
 // Description: Create a ticket
-// Access: Public
+// Access: Private
 
-router.post("/", (req, res) => {
+router.post("/", auth, (req, res) => {
   const newTicket = new Ticket({
     subject: req.body.subject,
     category: req.body.category,
@@ -31,9 +32,9 @@ router.post("/", (req, res) => {
 
 // Route: UPDATE api/tickets/update/:id
 // Description: Update an existing ticket
-// Access: Public
+// Access: Private
 
-router.post("/update/:id", (req, res) => {
+router.post("/update/:id", auth, (req, res) => {
   Ticket.findById(req.params.id)
     .then((ticket) => {
       ticket.subject = req.body.subject;
@@ -51,9 +52,9 @@ router.post("/update/:id", (req, res) => {
 
 // Route: DELETE api/tickets/:id
 // Description: Delete an existing ticket
-// Access: Public
+// Access: Private
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", auth, (req, res) => {
   Ticket.findById(req.params.id)
     .then((ticket) => ticket.remove().then(() => res.json({ success: true })))
     .catch((err) => res.status(404).json({ success: false }));

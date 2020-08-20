@@ -19,4 +19,6 @@ Create a Model of your data
 
 Create components (AppNavBar, CreateTicket, EditTicket, TicketList)
 
-Set up axios to fetch data to and from the database.
+Set up axios to fetch data to and from the database(GET, POST, DELETE).
+
+Implement user authentication with JWT and bcryptjs 
