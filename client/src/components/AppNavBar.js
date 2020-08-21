@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import AuthOptions from "./AuthOptions";
 import {
   Collapse,
   Navbar,
@@ -36,6 +37,7 @@ class AppNavBar extends Component {
                 <NavItem>
                   <NavLink href="/create">Create a Ticket</NavLink>
                 </NavItem>
+                <AuthOptions />
               </Nav>
             </Collapse>
           </Container>
