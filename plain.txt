@@ -21,4 +21,4 @@ Create components (AppNavBar, CreateTicket, EditTicket, TicketList)
 
 Set up axios to fetch data to and from the database(GET, POST, DELETE).
 
-Implement user authentication with JWT and bcryptjs 
+Implement user authentication with JWT and bcryptjs using context API.

@@ -1,0 +1,7 @@
+.auth-options {
+  cursor: pointer;
+}
+
+.error-notice span {
+  color: red;
+}

@@ -12,11 +12,21 @@ const User = require("../../models/User");
 // Access: Public
 
 router.post("/", (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, passwordCheck } = req.body;
 
   // Validations
-  if (!name || !email || !password) {
+  if ((!name || !email || !password, !passwordCheck)) {
     return res.status(400).json({ msg: "Please enter all fields" });
+  }
+
+  if (password.length < 5) {
+    return res
+      .status(400)
+      .json({ msg: "Password must be at least 5 characters long" });
+  }
+
+  if (password !== passwordCheck) {
+    return res.status(400).json({ msg: "Passwords do not match" });
   }
 
   // Check for an existing user

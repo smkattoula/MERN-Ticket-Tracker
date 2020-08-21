@@ -66,6 +66,7 @@ export default class CreateTicket extends Component {
           <Input
             type="select"
             name="category"
+            id="ticketCategory"
             value={this.state.category}
             onChange={this.onChangeCategory}
           >
@@ -82,6 +83,7 @@ export default class CreateTicket extends Component {
           <Input
             type="select"
             name="priority"
+            id="ticketPriority"
             value={this.state.priority}
             onChange={this.onChangePriority}
           >
@@ -96,6 +98,7 @@ export default class CreateTicket extends Component {
           <Input
             type="text"
             name="subject"
+            id="ticketSubject"
             value={this.state.subject}
             onChange={this.onChangeSubject}
             placeholder="Enter ticket subject.."
@@ -106,6 +109,7 @@ export default class CreateTicket extends Component {
           <Input
             type="textarea"
             name="description"
+            id="ticketDescription"
             value={this.state.description}
             onChange={this.onChangeDescription}
             placeholder="Enter ticket description.."
