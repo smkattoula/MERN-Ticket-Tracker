@@ -12,7 +12,7 @@ import UserContext from "./context/UserContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-function App() {
+export default function App() {
   const [userData, setUserData] = useState({
     token: undefined,
     user: undefined,
@@ -58,5 +58,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;

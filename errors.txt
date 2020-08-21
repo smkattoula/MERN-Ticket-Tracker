@@ -6,6 +6,7 @@ proxy error: Could not proxy request /api/tickets from localhost:3000 to http://
 
 Error: EACCES: permission denied, access '/usr/local/lib/node_modules' 
 
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
 
 
 ** BLOCKERS **
@@ -13,3 +14,5 @@ Error: EACCES: permission denied, access '/usr/local/lib/node_modules'
 Cannot seem to load ticket information into the edit form with componentDidMount. 
 
 Can't seem to load the date time as a prop into the DOM after implementing Redux. "Error: Objects are not valid as a React child (found: Wed Aug 19 2020 11:04:57 GMT-0700 (Pacific Daylight Time)). If you meant to render a collection of children, use an array instead."
+
+Cannot seem to allow authorization for a logged in user to create, read, update, and delete tickets after implementing auth middleware to the routes. (GET http://localhost:3000/api/tickets/ 401 (Unauthorized))

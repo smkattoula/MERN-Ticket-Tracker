@@ -42,7 +42,7 @@ export default class TicketList extends Component {
 
   componentDidMount() {
     axios
-      .get("/api/tickets")
+      .get("/api/tickets/")
       .then((res) => {
         this.setState({ tickets: res.data });
       })

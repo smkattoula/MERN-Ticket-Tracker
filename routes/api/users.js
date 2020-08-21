@@ -11,64 +11,42 @@ const User = require("../../models/User");
 // Description: Register a new user
 // Access: Public
 
-router.post("/", (req, res) => {
-  const { name, email, password, passwordCheck } = req.body;
+router.post("/", async (req, res) => {
+  try {
+    let { email, password, passwordCheck, name } = req.body;
 
-  // Validations
-  if ((!name || !email || !password, !passwordCheck)) {
-    return res.status(400).json({ msg: "Please enter all fields" });
-  }
+    // validate
 
-  if (password.length < 5) {
-    return res
-      .status(400)
-      .json({ msg: "Password must be at least 5 characters long" });
-  }
+    if (!email || !password || !passwordCheck || !name)
+      return res.status(400).json({ msg: "Not all fields have been entered." });
+    if (password.length < 5)
+      return res
+        .status(400)
+        .json({ msg: "The password needs to be at least 5 characters long." });
+    if (password !== passwordCheck)
+      return res
+        .status(400)
+        .json({ msg: "Enter the same password twice for verification." });
 
-  if (password !== passwordCheck) {
-    return res.status(400).json({ msg: "Passwords do not match" });
-  }
+    const existingUser = await User.findOne({ email: email });
+    if (existingUser)
+      return res
+        .status(400)
+        .json({ msg: "An account with this email already exists." });
 
-  // Check for an existing user
-  User.findOne({ email }).then((user) => {
-    if (user) {
-      return res.status(400).json({ msg: "User already exists" });
-    }
+    const salt = await bcrypt.genSalt();
+    const passwordHash = await bcrypt.hash(password, salt);
 
     const newUser = new User({
-      name,
       email,
-      password,
+      password: passwordHash,
+      name,
     });
-
-    // Create bcrypt salt and hash
-    bcrypt.genSalt(10, (err, salt) => {
-      bcrypt.hash(newUser.password, salt, (err, hash) => {
-        if (err) throw err;
-        newUser.password = hash;
-        newUser.save().then((user) => {
-          jwt.sign(
-            { id: user.id },
-            config.get("JWT_SECRET"),
-            {
-              expiresIn: 3600,
-            },
-            (err, token) => {
-              if (err) throw err;
-              res.json({
-                token,
-                user: {
-                  id: user.id,
-                  name: user.name,
-                  email: user.email,
-                },
-              });
-            }
-          );
-        });
-      });
-    });
-  });
+    const savedUser = await newUser.save();
+    res.json(savedUser);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 module.exports = router;

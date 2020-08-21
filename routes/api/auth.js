@@ -12,44 +12,34 @@ const User = require("../../models/User");
 // Description: Authenticate user
 // Access: Public
 
-router.post("/", (req, res) => {
-  const { email, password } = req.body;
+router.post("/", async (req, res) => {
+  try {
+    const { email, password } = req.body;
 
-  // Validations
-  if (!email || !password) {
-    return res.status(400).json({ msg: "Please enter all fields" });
-  }
+    // validate
+    if (!email || !password)
+      return res.status(400).json({ msg: "Not all fields have been entered." });
 
-  // Check for an existing user
-  User.findOne({ email }).then((user) => {
-    if (!user) {
-      return res.status(400).json({ msg: "User does not exist" });
-    }
+    const user = await User.findOne({ email: email });
+    if (!user)
+      return res
+        .status(400)
+        .json({ msg: "No account with this email has been registered." });
 
-    // Validate the password
-    bcrypt.compare(password, user.password).then((isMatch) => {
-      if (!isMatch) {
-        return res.status(400).json({ msg: "Invalid credentials" });
-      }
-      jwt.sign(
-        { id: user.id },
-        config.get("JWT_SECRET"),
-        {
-          expiresIn: 3600,
-        },
-        (err, token) => {
-          if (err) throw err;
-          res.json({
-            token,
-            user: {
-              id: user.id,
-              name: user.name,
-            },
-          });
-        }
-      );
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) return res.status(400).json({ msg: "Invalid credentials." });
+
+    const token = jwt.sign({ id: user._id }, config.get("JWT_SECRET"));
+    res.json({
+      token,
+      user: {
+        id: user._id,
+        name: user.name,
+      },
     });
-  });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // Route: POST api/auth/tokenIsValid
@@ -61,10 +51,10 @@ router.post("/tokenIsValid", async (req, res) => {
     const token = req.header("x-auth-token");
     if (!token) return res.json(false);
 
-    const verified = jwt.verify(token, config.get("JWT_SECRET"));
-    if (!verified) return res.json(false);
+    const decoded = jwt.verify(token, config.get("JWT_SECRET"));
+    if (!decoded) return res.json(false);
 
-    const user = await User.findById(verified.id);
+    const user = await User.findById(decoded.id);
     if (!user) return res.json(false);
 
     return res.json(true);
@@ -77,10 +67,12 @@ router.post("/tokenIsValid", async (req, res) => {
 // Description: Get user data
 // Access: Private
 
-router.get("/user", auth, (req, res) => {
-  User.findById(req.user.id)
-    .select("-password")
-    .then((user) => res.json(user));
+router.get("/user", auth, async (req, res) => {
+  const user = await User.findById(req.user.id);
+  res.json({
+    name: user.name,
+    id: user._id,
+  });
 });
 
 module.exports = router;

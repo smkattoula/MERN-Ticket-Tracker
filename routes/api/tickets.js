@@ -7,10 +7,10 @@ const Ticket = require("../../models/Ticket");
 
 // Route: GET api/tickets
 // Description: Get all tickets
-// Access: Public
+// Access: Private
 
-router.get("/", (req, res) => {
-  Ticket.find()
+router.get("/", auth, (req, res) => {
+  Ticket.find({ userId: req.user.id })
     .sort({ date: -1 })
     .then((tickets) => res.json(tickets));
 });
@@ -19,15 +19,21 @@ router.get("/", (req, res) => {
 // Description: Create a ticket
 // Access: Private
 
-router.post("/", auth, (req, res) => {
-  const newTicket = new Ticket({
-    subject: req.body.subject,
-    category: req.body.category,
-    priority: req.body.priority,
-    description: req.body.description,
-  });
+router.post("/", auth, async (req, res) => {
+  try {
+    const newTicket = new Ticket({
+      subject: req.body.subject,
+      category: req.body.category,
+      priority: req.body.priority,
+      description: req.body.description,
+      userId: req.user.id,
+    });
 
-  newTicket.save().then((ticket) => res.json(ticket));
+    const savedTicket = await newTicket.save();
+    res.json(savedTicket);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 // Route: UPDATE api/tickets/update/:id
@@ -35,12 +41,13 @@ router.post("/", auth, (req, res) => {
 // Access: Private
 
 router.post("/update/:id", auth, (req, res) => {
-  Ticket.findById(req.params.id)
+  Ticket.findById({ userId: req.user.id, _id: req.params.id })
     .then((ticket) => {
       ticket.subject = req.body.subject;
       ticket.category = req.body.category;
       ticket.priority = req.body.priority;
       ticket.description = req.body.description;
+      ticket.userId = req.user.id;
 
       ticket
         .save()
@@ -55,7 +62,7 @@ router.post("/update/:id", auth, (req, res) => {
 // Access: Private
 
 router.delete("/:id", auth, (req, res) => {
-  Ticket.findById(req.params.id)
+  Ticket.findById({ userId: req.user.id, _id: req.params.id })
     .then((ticket) => ticket.remove().then(() => res.json({ success: true })))
     .catch((err) => res.status(404).json({ success: false }));
 });
