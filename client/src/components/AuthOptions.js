@@ -9,21 +9,31 @@ export default function AuthOptions() {
 
   const register = () => history.push("/register");
   const login = () => history.push("/login");
+  const myTickets = () => history.push("/tickets");
+  const createTicket = () => history.push("/create");
   const logout = () => {
     setUserData({
       token: undefined,
       user: undefined,
     });
     localStorage.removeItem("auth-token");
-    window.location.reload();
+    window.location = "/";
   };
 
   return (
     <Nav>
       {userData.user ? (
-        <NavItem className="auth-options">
-          <NavLink onClick={logout}>Logout</NavLink>
-        </NavItem>
+        <>
+          <NavItem className="auth-options">
+            <NavLink onClick={myTickets}>My Tickets</NavLink>
+          </NavItem>
+          <NavItem className="auth-options">
+            <NavLink onClick={createTicket}>Create a Ticket</NavLink>
+          </NavItem>
+          <NavItem className="auth-options">
+            <NavLink onClick={logout}>Logout</NavLink>
+          </NavItem>
+        </>
       ) : (
         <>
           <NavItem className="auth-options">

@@ -83,7 +83,7 @@ export default class TicketList extends Component {
 
   render() {
     return (
-      <Table striped>
+      <Table striped className="table">
         <thead>
           <tr>
             <th>Subject</th>

@@ -25,7 +25,7 @@ export default function Login() {
         user: loginRes.data.user,
       });
       localStorage.setItem("auth-token", loginRes.data.token);
-      history.push("/");
+      history.push("/tickets");
     } catch (err) {
       err.response.data.msg && setError(err.response.data.msg);
     }
@@ -56,7 +56,9 @@ export default function Login() {
           placeholder="Enter password.."
         />
       </FormGroup>
-      <Button onClick={submit}>Submit</Button>
+      <Button onClick={submit} className="button">
+        Submit
+      </Button>
     </Form>
   );
 }

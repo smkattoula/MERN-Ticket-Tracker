@@ -1,7 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
 .auth-options {
   cursor: pointer;
 }
 
 .error-notice span {
   color: red;
+}
+
+form {
+  padding: 30px 40px;
+}
+
+form h3 {
+  text-align: center;
+}
+.form-group {
+  display: block;
+  margin: auto;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  max-width: 50%;
+  position: relative;
+}
+
+.button {
+  display: block;
+  margin: auto;
+  font-size: 16px;
+}
+.home {
+  text-align: center;
+}
+
+@media (max-width: 580px) {
+  .auth-options {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar {
+    width: 100%;
+  }
+
+  .table {
+    font-size: 10px;
+  }
+
+  .form-group {
+    max-width: 75%;
+  }
+}
+
+@media (max-width: 375px) {
+  .navbar {
+    width: 100%;
+  }
+
+  .table {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar {
+    width: 100%;
+  }
+
+  .table {
+    font-size: 8px;
+  }
+
+  .form-group {
+    max-width: 100%;
+  }
+
+  .home {
+    text-align: center;
+  }
+}
+
+@media (max-width: 320px) {
+  .navbar {
+    width: 410px;
+  }
+
+  .table {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 300px) {
+  .auth-options {
+    font-size: 14px;
+  }
+
+  .input {
+    font-size: 13px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
 }

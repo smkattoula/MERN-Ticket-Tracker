@@ -73,17 +73,18 @@ export default class EditTicket extends Component {
       })
       .then((res) => console.log(res.data));
 
-    window.location = "/";
+    window.location = "/tickets";
   };
 
   render() {
     return (
       <Form>
-        <FormGroup>
-          <h3>Edit Ticket</h3>
-          <br />
+        <h3>Edit Ticket</h3>
+        <br />
+        <FormGroup className="form-group">
           <Label for="category">Category</Label>
           <Input
+            className="input"
             type="select"
             name="category"
             id="ticketCategory"
@@ -98,9 +99,10 @@ export default class EditTicket extends Component {
             <option>Website</option>
           </Input>
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="form-group">
           <Label for="priority">Priority</Label>
           <Input
+            className="input"
             type="select"
             name="priority"
             id="ticketPriority"
@@ -113,9 +115,10 @@ export default class EditTicket extends Component {
             <option>High</option>
           </Input>
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="form-group">
           <Label for="subject">Subject</Label>
           <Input
+            className="input"
             type="text"
             name="subject"
             id="ticketSubject"
@@ -124,9 +127,10 @@ export default class EditTicket extends Component {
             placeholder="Enter ticket subject.."
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup className="form-group">
           <Label for="description">Description</Label>
           <Input
+            className="input"
             type="textarea"
             name="description"
             id="ticketDescription"
@@ -135,7 +139,9 @@ export default class EditTicket extends Component {
             placeholder="Enter ticket description.."
           />
         </FormGroup>
-        <Button onClick={this.onSubmit}>Submit</Button>
+        <Button onClick={this.onSubmit} className="button">
+          Submit
+        </Button>
       </Form>
     );
   }

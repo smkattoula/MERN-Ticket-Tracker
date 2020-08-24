@@ -5,6 +5,7 @@ import AppNavBar from "./components/AppNavBar";
 import TicketList from "./components/TicketList";
 import EditTicket from "./components/EditTicket";
 import CreateTicket from "./components/CreateTicket";
+import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import UserContext from "./context/UserContext";
@@ -48,7 +49,8 @@ export default function App() {
         <div className="App">
           <AppNavBar />
           <br />
-          <Route path="/" exact component={TicketList} />
+          <Route exact path="/" component={Home} />
+          <Route path="/tickets" component={TicketList} />
           <Route path="/edit/:id" component={EditTicket} />
           <Route path="/create" component={CreateTicket} />
           <Route path="/register" component={Register} />
