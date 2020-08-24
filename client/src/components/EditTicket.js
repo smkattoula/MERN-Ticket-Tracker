@@ -15,21 +15,24 @@ export default class EditTicket extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   axios
-  //     .get("/api/tickets/" + this.props.match.params.id)
-  //     .then((response) => {
-  //       this.setState({
-  //         subject: response.data.subject,
-  //         category: response.data.category,
-  //         priority: response.data.priority,
-  //         description: response.data.description,
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }
+  componentDidMount() {
+    const token = localStorage.getItem("auth-token");
+    axios
+      .get("/api/tickets/" + this.props.match.params.id, {
+        headers: { "x-auth-token": token },
+      })
+      .then((response) => {
+        this.setState({
+          subject: response.data.subject,
+          category: response.data.category,
+          priority: response.data.priority,
+          description: response.data.description,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   onChangeSubject = (e) => {
     this.setState({

@@ -15,6 +15,16 @@ router.get("/", auth, (req, res) => {
     .then((tickets) => res.json(tickets));
 });
 
+// Route: GET api/tickets
+// Description: Get a single ticket
+// Access: Private
+
+router.get("/:id", auth, (req, res) => {
+  Ticket.findById(req.params.id)
+    .then((ticket) => res.json(ticket))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
 // Route: POST api/tickets
 // Description: Create a ticket
 // Access: Private
