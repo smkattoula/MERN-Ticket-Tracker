@@ -66,9 +66,11 @@ export default class EditTicket extends Component {
     };
 
     console.log(ticket);
-
+    const token = localStorage.getItem("auth-token");
     axios
-      .post("/api/tickets/update/" + this.props.match.params.id, ticket)
+      .post("/api/tickets/update/" + this.props.match.params.id, ticket, {
+        headers: { "x-auth-token": token },
+      })
       .then((res) => console.log(res.data));
 
     window.location = "/";

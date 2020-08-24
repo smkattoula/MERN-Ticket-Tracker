@@ -41,8 +41,9 @@ export default class TicketList extends Component {
   }
 
   componentDidMount() {
+    const token = localStorage.getItem("auth-token");
     axios
-      .get("/api/tickets/")
+      .get("/api/tickets/", { headers: { "x-auth-token": token } })
       .then((res) => {
         this.setState({ tickets: res.data });
       })
@@ -52,7 +53,10 @@ export default class TicketList extends Component {
   }
 
   deleteTicket = (id) => {
-    axios.delete("/api/tickets/" + id).then((res) => console.log(res.data));
+    const token = localStorage.getItem("auth-token");
+    axios
+      .delete("/api/tickets/" + id, { headers: { "x-auth-token": token } })
+      .then((res) => console.log(res.data));
 
     this.setState({
       tickets: this.state.tickets.filter((el) => el._id !== id),
@@ -70,6 +74,13 @@ export default class TicketList extends Component {
       );
     });
   };
+
+  clearInputs = () => {
+    this.setState({
+      tickets: [],
+    });
+  };
+
   render() {
     return (
       <Table striped>
