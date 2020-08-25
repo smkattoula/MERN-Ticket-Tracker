@@ -36,6 +36,7 @@ router.post("/", auth, async (req, res) => {
       category: req.body.category,
       priority: req.body.priority,
       description: req.body.description,
+      date: Date.parse(req.body.date),
       userId: req.user.id,
     });
 
@@ -57,6 +58,7 @@ router.post("/update/:id", auth, (req, res) => {
       ticket.category = req.body.category;
       ticket.priority = req.body.priority;
       ticket.description = req.body.description;
+      ticket.date = Date.parse(req.body.date);
       ticket.userId = req.user.id;
 
       ticket

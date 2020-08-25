@@ -14,6 +14,7 @@ const User = require("../../models/User");
 router.post("/", async (req, res) => {
   try {
     let { email, password, passwordCheck, name } = req.body;
+    const passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
 
     // validate
 
@@ -27,6 +28,12 @@ router.post("/", async (req, res) => {
       return res
         .status(400)
         .json({ msg: "Enter the same password twice for verification." });
+
+    if (!password.match(passw))
+      return res.status(400).json({
+        msg:
+          "Password must contain at least one uppercase, one lowercase, and one numeric character",
+      });
 
     const existingUser = await User.findOne({ email: email });
     if (existingUser)

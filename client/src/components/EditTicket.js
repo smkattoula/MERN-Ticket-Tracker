@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 
 export default class EditTicket extends Component {
@@ -27,6 +29,7 @@ export default class EditTicket extends Component {
           category: response.data.category,
           priority: response.data.priority,
           description: response.data.description,
+          date: new Date(response.data.date),
         });
       })
       .catch((err) => {
@@ -58,6 +61,12 @@ export default class EditTicket extends Component {
     });
   };
 
+  onChangeDate = (date) => {
+    this.setState({
+      date: date,
+    });
+  };
+
   onSubmit = (e) => {
     e.preventDefault();
 
@@ -66,6 +75,7 @@ export default class EditTicket extends Component {
       category: this.state.category,
       priority: this.state.priority,
       description: this.state.description,
+      date: this.state.date,
     };
 
     console.log(ticket);
@@ -142,6 +152,17 @@ export default class EditTicket extends Component {
             placeholder="Enter ticket description.."
           />
         </FormGroup>
+        <FormGroup className="form-group">
+          <Label for="date">Date</Label>
+          <div>
+            <DatePicker
+              className="date"
+              selected={this.state.date}
+              onChange={this.onChangeDate}
+            />
+          </div>
+        </FormGroup>
+
         <Button onClick={this.onSubmit} className="button">
           Submit
         </Button>

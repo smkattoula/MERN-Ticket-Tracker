@@ -8,7 +8,7 @@ export default function Home() {
     <div className="home">
       {userData.user ? (
         <>
-          <h1>Welcome to Ticket Tracker!</h1>
+          <h1>Welcome to Ticket Tracker, {userData.user.name}!</h1>
           <br />
           <h3>You are currently logged in.</h3>
         </>
