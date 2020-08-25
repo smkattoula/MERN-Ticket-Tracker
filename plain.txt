@@ -1,3 +1,5 @@
+**PRE PROJECT OUTLINE**
+
 Build out backend with express API and mongoose for MongoDB.
 
 Install dependencies (express, mongoose, concurrently)
@@ -9,13 +11,12 @@ Set up MongoDB going to MongoDB Atlas and adding MONGO_URI to server.js
 
 Create a Model of your data
 
-**API**
- Fetch request to GET, POST(add), POST(update), DELETE tickets
+Fetch request to GET, POST(add), POST(update), DELETE tickets
 
- Create client folder for frontend and run create-react-app
- Configure client package.json(set up proxy)
+Create client folder for frontend and run create-react-app
+Configure client package.json(set up proxy)
  
- In client folder, npm install bootstrap, reactstrap, uuid, react-transition-group
+In client folder, npm install bootstrap, reactstrap, uuid, react-transition-group
 
 Create components (AppNavBar, CreateTicket, EditTicket, TicketList)
 
@@ -24,3 +25,12 @@ Set up axios to fetch data to and from the database(GET, POST, DELETE).
 Implement user authentication/authorization with JWT and bcryptjs using context API.
 
 Prepare build and deploy to heroku
+
+
+**END PROJECT NOTES**
+
+react-datepicker is a little buggy. Sometimes it displays the correct date, but sometimes it will display the selected date by one day off.
+
+There is definetly room for code refactoring in the CreateTicket and EditTicket components (onChange functions can be refactored into one function). routes/api files "auth.js" and "users.js" can be refactored into one file.
+
+Some components are class-based (constructor/super) and some are functional-based (react-hooks). Although the code is functioning just fine, I should strive be more consistent with my code. Same goes for async/await vs promises. 

@@ -19,7 +19,15 @@ Can't seem to load the date time as a prop into the DOM after implementing Redux
 
 Cannot seem to allow authorization for a logged in user to create, read, update, and delete tickets after implementing auth middleware to the routes. (GET http://localhost:3000/api/tickets/ 401 (Unauthorized))
 
+Selecting a date in react-datepicker sometimes works and other times will display the selected date by one day off. 
+
 
 **UPDATE 08/24/2020**
 
-ALL ERROR CODES AND BLOCKERS SOLVED!
+Solved most error codes and blockers. 
+
+Sometimes I'll get the "could not proxy request" error code. Tried setting up "proxy" to 127.0.0.1 and setting "secure" to false in package.json. Super random error, doesn't seem to actually break the program though, seems to be a common issue on stackoverflow.
+
+react-datepicker is still kind of buggy, sometimes works right and sometimes doesn't. Tried using other date pickers but haven't found a good one yet. 
+
+Switched from implementing Redux to Context API instead. Both of these state managment tools are not actually neccessary for small-scale projects such as this one, however, I wanted to demonstrate my understanding of state management implementation. Went with Context API this time around, but will definetly implement Redux in upcoming projects. 

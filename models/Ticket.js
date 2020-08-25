@@ -5,6 +5,7 @@ const Schema = mongoose.Schema;
 const TicketSchema = new Schema({
   subject: {
     type: String,
+    trim: true,
     required: true,
   },
   category: {
@@ -17,6 +18,7 @@ const TicketSchema = new Schema({
   },
   description: {
     type: String,
+    trim: true,
     required: true,
   },
   userId: {

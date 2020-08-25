@@ -59,6 +59,7 @@ export default class CreateTicket extends Component {
     };
 
     console.log(ticket);
+
     const token = localStorage.getItem("auth-token");
     axios
       .post("/api/tickets/", ticket, { headers: { "x-auth-token": token } })

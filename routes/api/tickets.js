@@ -40,6 +40,10 @@ router.post("/", auth, async (req, res) => {
       userId: req.user.id,
     });
 
+    if (!newTicket) {
+      return res.status(400).json({ msg: "Please enter all fields" });
+    }
+
     const savedTicket = await newTicket.save();
     res.json(savedTicket);
   } catch (err) {
