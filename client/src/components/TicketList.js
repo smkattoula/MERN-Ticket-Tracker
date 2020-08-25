@@ -5,10 +5,10 @@ import axios from "axios";
 
 const Ticket = (props) => (
   <tr>
-    <td>{props.ticket.subject}</td>
-    <td>{props.ticket.description}</td>
     <td>{props.ticket.category}</td>
     <td>{props.ticket.priority}</td>
+    <td>{props.ticket.subject}</td>
+    <td>{props.ticket.description}</td>
     <td>{props.ticket.date.substring(0, 10)}</td>
     <td>{props.ticket.status}</td>
     <td>
@@ -87,10 +87,10 @@ export default class TicketList extends Component {
       <Table striped className="table">
         <thead>
           <tr>
-            <th>Subject</th>
-            <th>Description</th>
             <th>Category</th>
             <th>Priority</th>
+            <th>Subject</th>
+            <th>Description</th>
             <th>Date</th>
             <th>Status</th>
             <th>Options</th>
