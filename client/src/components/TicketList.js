@@ -10,6 +10,7 @@ const Ticket = (props) => (
     <td>{props.ticket.category}</td>
     <td>{props.ticket.priority}</td>
     <td>{props.ticket.date.substring(0, 10)}</td>
+    <td>{props.ticket.status}</td>
     <td>
       <Link to={"/edit/" + props.ticket._id} style={{ color: "#20c997" }}>
         Edit
@@ -91,6 +92,7 @@ export default class TicketList extends Component {
             <th>Category</th>
             <th>Priority</th>
             <th>Date</th>
+            <th>Status</th>
             <th>Options</th>
           </tr>
         </thead>

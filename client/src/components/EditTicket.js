@@ -14,6 +14,7 @@ export default class EditTicket extends Component {
       category: "",
       priority: "",
       description: "",
+      status: "",
       date: new Date(),
     };
   }
@@ -30,6 +31,7 @@ export default class EditTicket extends Component {
           category: response.data.category,
           priority: response.data.priority,
           description: response.data.description,
+          status: response.data.status,
           date: new Date(response.data.date),
         });
       })
@@ -62,6 +64,12 @@ export default class EditTicket extends Component {
     });
   };
 
+  onChangeStatus = (e) => {
+    this.setState({
+      status: e.target.value,
+    });
+  };
+
   onChangeDate = (date) => {
     this.setState({
       date: date,
@@ -76,6 +84,7 @@ export default class EditTicket extends Component {
       category: this.state.category,
       priority: this.state.priority,
       description: this.state.description,
+      status: this.state.status,
       date: this.state.date,
     };
 
@@ -127,6 +136,21 @@ export default class EditTicket extends Component {
             <option>Low</option>
             <option>Medium</option>
             <option>High</option>
+          </Input>
+        </FormGroup>
+        <FormGroup className="form-group">
+          <Label for="status">Status</Label>
+          <Input
+            className="input"
+            type="select"
+            name="status"
+            id="ticketStatus"
+            value={this.state.status}
+            onChange={this.onChangeStatus}
+          >
+            <option>Select a Status</option>
+            <option>Open</option>
+            <option>Closed</option>
           </Input>
         </FormGroup>
         <FormGroup className="form-group">

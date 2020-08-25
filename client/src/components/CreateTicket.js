@@ -13,6 +13,7 @@ export default class CreateTicket extends Component {
       category: "",
       priority: "",
       description: "",
+      status: "",
       date: new Date(),
     };
   }
@@ -41,6 +42,12 @@ export default class CreateTicket extends Component {
     });
   };
 
+  onChangeStatus = (e) => {
+    this.setState({
+      status: e.target.value,
+    });
+  };
+
   onChangeDate = (date) => {
     this.setState({
       date: date,
@@ -56,6 +63,7 @@ export default class CreateTicket extends Component {
       priority: this.state.priority,
       description: this.state.description,
       date: this.state.date,
+      status: this.state.status,
     };
 
     console.log(ticket);

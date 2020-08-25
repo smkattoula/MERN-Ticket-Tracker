@@ -21,6 +21,11 @@ const TicketSchema = new Schema({
     trim: true,
     required: true,
   },
+  status: {
+    type: String,
+    required: true,
+    default: "Open",
+  },
   userId: {
     type: String,
     required: true,

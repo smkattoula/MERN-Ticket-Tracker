@@ -62,6 +62,7 @@ router.post("/update/:id", auth, (req, res) => {
       ticket.category = req.body.category;
       ticket.priority = req.body.priority;
       ticket.description = req.body.description;
+      ticket.status = req.body.status;
       ticket.date = Date.parse(req.body.date);
       ticket.userId = req.user.id;
 
