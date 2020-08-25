@@ -1,0 +1,4 @@
+{
+  "MONGO_URI": "mongodb+srv://smkattoula:SHka9092@tickettrackerapp.rlokh.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "JWT_SECRET": "ftWxELAmqjbnQYMjXGFyLrDSffgfgsHqZWbJN9ZsnbTkw7PPU9"
+}
