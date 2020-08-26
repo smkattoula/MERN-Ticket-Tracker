@@ -31,6 +31,6 @@ Prepare build and deploy to heroku
 
 react-datepicker is a little buggy. Sometimes it displays the correct date, but sometimes it will display the selected date by one day off.
 
-There is definetly room for code refactoring in the CreateTicket and EditTicket components (onChange functions can be refactored into one function). routes/api files "auth.js" and "users.js" can be refactored into one file.
+There is definitely room for code refactoring in the CreateTicket and EditTicket components (onChange functions can be refactored into one function). routes/api files "auth.js" and "users.js" can be refactored into one file.
 
 Some components are class-based (constructor/super) and some are functional-based (react-hooks). Although the code is functioning just fine, I should strive be more consistent with my code. Same goes for async/await vs promises. 
