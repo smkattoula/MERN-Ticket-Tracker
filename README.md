@@ -17,6 +17,7 @@ I am a full-stack web developer specializing in the MERN framework and currently
 ### Goal
 * Manage and organize your employee's daily tasks to boost productivity and work flow.
 * Provide a simple and convenient customer support ticketing system in which users can submit forms for any issue, allowing you to more effectively communicate to and serve your clientele.
+* Operate as a bug tracker for software developers to track their bugs for a more efficient debugging experience. 
 
 
 ### Phases
