@@ -1,5 +1,5 @@
 # MERN-Ticket-Tracker
-A full-stack application utilizing the MERN framework. This application allows users to create tickets to track their bugs, issues, or tasks to complete. Implements REST API's with axios, CRUD functionality, JSON, MVC design pattern, User Authentication using JWT and bcryptJS, MongoDB with mongoose, State Management using Context API, Styling of the UI with CSS, use of React libraries such as BrowserRouter, React-Router-Dom, Hooks, Bootstrap/Reactstrap and more. 
+A full-stack application utilizing the MERN framework. This application allows users to create tickets to track their bugs, issues, or tasks to complete. Implements REST API's with axios, CRUD functionality, JSON, User Authentication using JWT and bcryptJS, MongoDB with mongoose, State Management using Context API, Styling of the UI with CSS, use of React libraries such as BrowserRouter, React-Router-Dom, Hooks, Bootstrap/Reactstrap and more. 
 
 ![Image](https://github.com/smkattoula/smkattoula.github.io/blob/master/assets/img/portfolio/TicketTrackerPic.png)
 
