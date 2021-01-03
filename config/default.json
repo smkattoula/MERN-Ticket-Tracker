@@ -1,4 +1,0 @@
-{
-  "MONGO_URI": "mongodb+srv://smkattoula:SHka9092@tickettrackerapp.rlokh.mongodb.net/<dbname>?retryWrites=true&w=majority",
-  "JWT_SECRET": "secret"
-}
