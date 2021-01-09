@@ -1,7 +1,7 @@
 # MERN-Ticket-Tracker
 A full-stack application utilizing the MERN framework. This application allows users to create tickets to track their bugs, issues, or tasks to complete. Implements REST API's with axios, CRUD functionality, JSON, User Authentication using JWT and bcryptJS, MongoDB with mongoose, State Management using Context API, Styling of the UI with CSS, use of React libraries such as BrowserRouter, React-Router-Dom, Hooks, Bootstrap/Reactstrap and more. 
 
-![Image](https://github.com/smkattoula/smkattoula.github.io/blob/master/assets/img/portfolio/TicketTrackerPic.png)
+![Image](https://github.com/smkattoula/smkattoula.github.io/blob/master/assets/img/portfolio/ticket-tracker.png)
 
 ## Installation 
 I created a "client-install" script to make it easier for you to install all of the dependancies so that you don't have to run "npm install" twice for both the server package.json and client package.json. Instead, all you need to do after you have cloned this repo into your text editor is to `cd into the root folder` and run `npm client-install`. This will install all of the dependacies for both server side and client side package.json. You can then run `npm run dev` to start up the nodemon server (for real-time error handling) and the development server (to view the app in localhost on your browser).
@@ -44,5 +44,5 @@ I am a full-stack web developer specializing in the MERN framework and currently
 ## Ways to Improve and Future Updates
 1. There is definetly a lot of room on this project for refactoring. Multiple handle change functions can be reduced into just one function, my components in React are a mix between Class based and Functional based components, not sure if this is a bad thing but I assume it would be best to keep things consistent. Some of the user auth files can be combined into one file as well. I also have a mix of async/await promises vs traditional promises throughout my code. Again, I figure the best course of action is to keep things consistent.
 2. My Home page is pretty bland with a simple welcome text. I could definetly improve the look of this page and even add a unique brand name along with a brand image to make it look more authentic. 
-3. Web is not responsive and needs media queries.
+3. Web application is not responsive and needs media queries.
 4. I'll be returning in the near future to implement changes and improvements to this project. This was a fun one!
