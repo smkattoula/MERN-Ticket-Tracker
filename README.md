@@ -1,7 +1,7 @@
 # MERN-Ticket-Tracker
 A full-stack application utilizing the MERN framework. This application allows users to create tickets to track their bugs, issues, or tasks to complete. Implements REST API's with axios, CRUD functionality, JSON, User Authentication using JWT and bcryptJS, MongoDB with mongoose, State Management using Context API, Styling of the UI with CSS, use of React libraries such as BrowserRouter, React-Router-Dom, Hooks, Bootstrap/Reactstrap and more. 
 
-![Image](https://github.com/smkattoula/smkattoula.github.io/blob/master/assets/img/portfolio/ticket-tracker.png)
+![Image](https://github.com/smkattoula/smkattoula.github.io/blob/master/assets/img/ticket-tracker.png)
 
 ## Installation 
 I created a "client-install" script to make it easier for you to install all of the dependancies so that you don't have to run "npm install" twice for both the server package.json and client package.json. Instead, all you need to do after you have cloned this repo into your text editor is to `cd into the root folder` and run `npm client-install`. This will install all of the dependacies for both server side and client side package.json. You can then run `npm run dev` to start up the nodemon server (for real-time error handling) and the development server (to view the app in localhost on your browser).
