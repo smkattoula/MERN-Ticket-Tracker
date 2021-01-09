@@ -43,6 +43,6 @@ I am a full-stack web developer specializing in the MERN framework and currently
 
 ## Ways to Improve and Future Updates
 1. There is definetly a lot of room on this project for refactoring. Multiple handle change functions can be reduced into just one function, my components in React are a mix between Class based and Functional based components, not sure if this is a bad thing but I assume it would be best to keep things consistent. Some of the user auth files can be combined into one file as well. I also have a mix of async/await promises vs traditional promises throughout my code. Again, I figure the best course of action is to keep things consistent.
-2. My Home page is pretty bland with a simple welcome text. I could definetly improve the look of this page and even add a unique brand name along with a brand image to make it look more authentic. 
+2. The Home page is pretty bland with a simple welcome text. I could definetly improve the look of this page and even add a unique brand name along with a brand image to make it look more authentic. 
 3. Web application is not responsive and needs media queries.
 4. I'll be returning in the near future to implement changes and improvements to this project. This was a fun one!
